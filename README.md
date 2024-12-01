@@ -11,13 +11,13 @@ go install github.com/snaka/ecs-exec-sh/cmd/ecs-exec-sh
 Execute a command in a container of an ECS service.
 
 ```bash
-ecs-exec-sh exec --cluster <cluster> --service <service> --container <container> [--command <command>]
+ecs-exec-sh exec -c <cluster> -s <service> -C <container> [-x <command>]
 ```
 
-- `--cluster`: ECS cluster name
-- `--service`: ECS service name
-- `--container`: ECS container name
-- `--command`: Command to execute in the container (default: `/bin/sh`)
+- `--cluster`, `-c`: ECS cluster name
+- `--service`, `-s`: ECS service name
+- `--container`, `-C`: ECS container name
+- `--command`, `-x`: Command to execute in the container (default: `/bin/sh`)
 
 List available cluster, service, and container names.
 
