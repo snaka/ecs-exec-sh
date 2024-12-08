@@ -10,7 +10,7 @@ import (
 
 func Client() (*ecs.Client, error) {
 	// Load AWS Config
-	cfg, err := config.LoadDefaultConfig(context.TODO(), config.WithRegion("ap-northeast-1"))
+	cfg, err := config.LoadDefaultConfig(context.TODO())
 	if err != nil {
 		fmt.Println("Error loading AWS config:", err)
 		return nil, err

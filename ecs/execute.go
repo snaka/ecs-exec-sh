@@ -191,7 +191,7 @@ func runSessionManagerPlugin(ctx context.Context, session *types.Session, target
 		ctx,
 		"session-manager-plugin",
 		string(sess),
-		"ap-northeast-1",
+		"",
 		"StartSession",
 		"",
 		string(ssmReq),
