@@ -38,8 +38,4 @@ func init() {
 	execCmd.Flags().StringVarP(&serviceName, "service", "s", "", "service name")
 	execCmd.Flags().StringVarP(&containerName, "container", "C", "", "container name")
 	execCmd.Flags().StringVarP(&command, "command", "x", "/bin/sh", "command to execute")
-
-	execCmd.MarkFlagRequired("cluster")
-	execCmd.MarkFlagRequired("service")
-	execCmd.MarkFlagRequired("container")
 }
