@@ -74,7 +74,7 @@ func selectCluster(ctx context.Context, svc *ecs.Client) (string, error) {
 
 	clusterNames := make([]string, 0, len(clusters.ClusterArns))
 	for _, c := range clusters.ClusterArns {
-		clusterNames = append(clusterNames, extractName(c))
+		clusterNames = append(clusterNames, extractLastName(c))
 	}
 
 	// selection
@@ -96,7 +96,7 @@ func selectService(ctx context.Context, svc *ecs.Client, clusterName string) (st
 
 	serviceNames := make([]string, 0, len(services.ServiceArns))
 	for _, s := range services.ServiceArns {
-		serviceNames = append(serviceNames, extractName(s))
+		serviceNames = append(serviceNames, extractLastName(s))
 	}
 
 	// selection
@@ -205,4 +205,9 @@ func runSessionManagerPlugin(ctx context.Context, session *types.Session, target
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	return cmd.Run()
+}
+
+func extractLastName(arn string) string {
+	value := strings.Split(arn, "/")
+	return value[len(value)-1]
 }
